@@ -4,12 +4,13 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.view.*
 
+data class Character(val id: Long, val name: String, val info: String,val photoUrl: String)
 
 class MainActivity : AppCompatActivity() {
 
-    var characterName: String = ""
-    var characterImageURL: String = ""
-    var characterDescription : String =""
+    lateinit var characterName: String
+    lateinit var characterImageURL: String
+    lateinit var characterDescription : String
 
     var al_names: ArrayList <String> =ArrayList()
 
@@ -19,12 +20,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        main_menu.title.text="MARVEL"
+        ly_activity_main.title.text="MARVEL"
         addNames()
-
-        
-
-
 
 
     }

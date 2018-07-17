@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ly_activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/black"
     tools:context=".MainActivity"
-    android:background="@android:color/black">
-
-<LinearLayout android:id="@+id/main_menu"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
     android:orientation="vertical"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintBaseline_toBaselineOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
+    android:weightSum="4">
 
-    >
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="dc"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="25sp"
+        android:layout_weight="1"
+        android:gravity="center"/>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_characters"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
 
-<TextView
-    android:id="@+id/title"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textColor="@android:color/holo_red_dark"
-    android:textSize="25sp"
-    android:layout_margin="20dp"
-
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintBaseline_toBaselineOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-
-
-
-    android:text="dc"
-    />
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </android.support.v7.widget.RecyclerView>
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
