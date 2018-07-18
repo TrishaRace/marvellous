@@ -2,9 +2,11 @@ package com.example.carrerap.marvellous
 import kotlinx.android.synthetic.main.activity_main.*
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import com.example.carrerap.marvellous.R.layout.character_item
 import kotlinx.android.synthetic.main.activity_main.view.*
 
-data class Character(val id: Long, val name: String, val info: String,val photoUrl: String)
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+        val itemView :  = character_item
         ly_activity_main.title.text="MARVEL"
         addNames()
 
