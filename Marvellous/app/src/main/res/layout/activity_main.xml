@@ -13,7 +13,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="dc"
+        android:text="@string/marvel"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="25sp"
         android:layout_weight="1"

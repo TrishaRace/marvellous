@@ -7,13 +7,13 @@ import android.widget.LinearLayout
 import com.example.carrerap.marvellous.adapters.CharactersAdapter
 import com.example.carrerap.marvellous.model.Character
 import kotlinx.android.synthetic.main.activity_main.view.*
-
+import java.net.URL
 
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var characterName: String
-    lateinit var characterImageURL: String
+    lateinit var characterImageURL: URL
     lateinit var characterDescription : String
 
     var characterList: ArrayList <Character> =ArrayList()
@@ -34,12 +34,18 @@ class MainActivity : AppCompatActivity() {
 
         rv_characters.adapter = CharactersAdapter(characterList, this)
 
+
     }
     fun addNames(){
 
-        characterList.add(Character(1, "Capitan America", "hskahdfklashlñasdjfñlsadhfklajsdh", "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04"))
-        characterList.add(Character(2, "Iron man", "lsdifasldgfjksadgkjafsgdj", "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04"))
-        characterList.add(Character(3, "Viuda negra", "lksadhflaskjdfhalkjsdgfhlkashdflkashdflkh", "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04"))
+        characterList.add(Character(1, "Capitan America", "hskahdfklashlñasdjfñlsadhfklajsdh", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTQD3vv817fe-eMzyJm4QyusRbUb-1mAodJ39K2rGgcDLEbFoI"))
+        characterList.add(Character(2, "Iron man", "lsdifasldgfjksadgkjafsgdj", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTQD3vv817fe-eMzyJm4QyusRbUb-1mAodJ39K2rGgcDLEbFoI"))
+        characterList.add(Character(3, "Viuda negra", "lksadhflaskjdfhalkjsdgfhlkashdflkashdflkh", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTQD3vv817fe-eMzyJm4QyusRbUb-1mAodJ39K2rGgcDLEbFoI"))
+        characterList.add(Character(4, "Spiderman", "ñldsjaflñksadjfñlsjadflñjasdlfkjslñdfj", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTQD3vv817fe-eMzyJm4QyusRbUb-1mAodJ39K2rGgcDLEbFoI"))
+        characterList.add(Character(4, "Spiderman", "ñldsjaflñksadjfñlsjadflñjasdlfkjslñdfj", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTQD3vv817fe-eMzyJm4QyusRbUb-1mAodJ39K2rGgcDLEbFoI"))
+        characterList.add(Character(4, "Spiderman", "ñldsjaflñksadjfñlsjadflñjasdlfkjslñdfj", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTQD3vv817fe-eMzyJm4QyusRbUb-1mAodJ39K2rGgcDLEbFoI"))
+        characterList.add(Character(4, "Spiderman", "ñldsjaflñksadjfñlsjadflñjasdlfkjslñdfj", "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04"))
+        characterList.add(Character(4, "Spiderman", "ñldsjaflñksadjfñlsjadflñjasdlfkjslñdfj", "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04"))
         characterList.add(Character(4, "Spiderman", "ñldsjaflñksadjfñlsjadflñjasdlfkjslñdfj", "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04"))
 
     }
