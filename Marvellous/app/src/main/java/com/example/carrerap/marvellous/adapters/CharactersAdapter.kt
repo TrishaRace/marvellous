@@ -29,6 +29,7 @@ class CharactersAdapter(var characters: ArrayList<Character>, var context: Conte
 
     override fun getItemCount(): Int {
         return characters.size
+        //fhasdlkfhalksdhflkasjdhflkajsdhfklj
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
