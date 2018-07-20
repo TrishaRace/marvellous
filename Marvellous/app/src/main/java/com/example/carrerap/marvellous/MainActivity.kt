@@ -1,4 +1,5 @@
 package com.example.carrerap.marvellous
+
 import kotlinx.android.synthetic.main.activity_main.*
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -14,9 +15,9 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var characterName: String
     lateinit var characterImageURL: URL
-    lateinit var characterDescription : String
+    lateinit var characterDescription: String
 
-    var characterList: ArrayList <Character> =ArrayList()
+    var characterList: ArrayList<Character> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,18 +26,20 @@ class MainActivity : AppCompatActivity() {
 
 
         addNames()
+        readMarvelApi()
 
-        rv_characters.layoutManager = LinearLayoutManager (this, LinearLayout.VERTICAL,false)
-        ly_activity_main.title.text="MARVEL"
+        rv_characters.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+       // ly_activity_main.title.text = "MARVEL"
 
 
-       // rv_characters.adapter = CharactersAdapter(characterList, {item:Character-> View.OnClickListener(item) } )
+        // rv_characters.adapter = CharactersAdapter(characterList, {item:Character-> View.OnClickListener(item) } )
 
         rv_characters.adapter = CharactersAdapter(characterList, this)
 
 
     }
-    fun addNames(){
+
+    fun addNames() {
 
         characterList.add(Character(1, "Capitan America", "hskahdfklashlñasdjfñlsadhfklajsdh", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTQD3vv817fe-eMzyJm4QyusRbUb-1mAodJ39K2rGgcDLEbFoI"))
         characterList.add(Character(2, "Iron man", "lsdifasldgfjksadgkjafsgdj", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTQD3vv817fe-eMzyJm4QyusRbUb-1mAodJ39K2rGgcDLEbFoI"))
