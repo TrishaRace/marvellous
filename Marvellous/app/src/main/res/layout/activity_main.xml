@@ -7,7 +7,7 @@
     android:background="@android:color/black"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:weightSum="4">
+    android:weightSum="6">
 
     <TextView
         android:id="@+id/title"
@@ -15,7 +15,7 @@
         android:layout_height="0dp"
         android:text="@string/marvel"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="25sp"
+        android:theme="@style/BigTitle"
         android:layout_weight="1"
         android:gravity="center"/>
 
@@ -23,7 +23,8 @@
         android:id="@+id/rv_characters"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:padding="10dp"
+        android:layout_weight="5">
 
     </android.support.v7.widget.RecyclerView>
 

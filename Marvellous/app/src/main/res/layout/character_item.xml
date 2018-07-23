@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="@android:color/black">
+    android:background="@android:color/black"
+    >
 
     <ImageView
         android:id="@+id/iv_character_photo"
@@ -13,18 +14,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:src="@drawable/ic_launcher_foreground"/>
+        tools:src="@drawable/ic_launcher_foreground"
+      />
 
     <TextView
         android:id="@+id/tv_character_name"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:text="@string/capitan_america"
         app:layout_constraintLeft_toRightOf="@+id/iv_character_photo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tv_character_info"
-        android:theme="@style/TextViewTitle"/>
+        android:theme="@style/TextViewTitle"
+
+        />
 
     <TextView
         android:id="@+id/tv_character_info"

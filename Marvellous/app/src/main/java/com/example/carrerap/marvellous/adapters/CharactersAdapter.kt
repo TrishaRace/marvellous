@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.character_item.view.*
 
 
-class CharactersAdapter(var characters: ArrayList<Character>, var context: Context): RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
+class CharactersAdapter(var characters: ArrayList<Character>, val context: Context, val clickListener: (Character) -> Unit): RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersAdapter.ViewHolder {
@@ -26,7 +26,7 @@ class CharactersAdapter(var characters: ArrayList<Character>, var context: Conte
 
 
     override fun onBindViewHolder(holder: CharactersAdapter.ViewHolder, position: Int) {
-        holder.bindItems(characters[position],context)
+        holder.bindItems(characters[position],context,clickListener)
     }
 
     override fun getItemCount(): Int {
@@ -35,11 +35,12 @@ class CharactersAdapter(var characters: ArrayList<Character>, var context: Conte
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun bindItems(hero: Character, context: Context){
+        fun bindItems(hero: Character, context: Context, clickListener:(Character)->Unit){
             itemView.tv_character_name.text = hero.name
             itemView.tv_character_info.text = hero.info
            // Glide.with(context).load(hero.photoUrl).into(itemView.iv_character_photo)
             Picasso.get().load(hero.photoUrl).into(itemView.iv_character_photo)
+            itemView.setOnClickListener { clickListener(hero)}
         }
     }
 
