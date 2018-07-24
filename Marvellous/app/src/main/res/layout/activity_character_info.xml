@@ -12,17 +12,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/black"
-                android:gravity="center"
-                android:text="@string/marvel"
-                android:textColor="@android:color/holo_red_dark"
-                android:theme="@style/BigTitle"
-               />
-
             <ImageView
                 android:id="@+id/iv_character_photo"
                 android:layout_width="wrap_content"
