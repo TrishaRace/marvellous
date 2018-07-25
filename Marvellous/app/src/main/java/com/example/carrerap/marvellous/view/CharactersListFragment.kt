@@ -82,6 +82,7 @@ class CharactersListFragment : android.support.v4.app.Fragment() {
         activity!!.supportFragmentManager.beginTransaction().replace(R.id.ly_activity_main,CharacterInfoFragment()).addToBackStack(null).commit()
 
 
+        //jh
         // intent.putExtra("character_id",character.id)
 
               //Cambiar de fragment y mandar id
