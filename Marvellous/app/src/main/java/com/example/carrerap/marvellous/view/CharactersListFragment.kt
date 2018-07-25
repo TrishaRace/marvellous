@@ -1,6 +1,8 @@
 package com.example.carrerap.marvellous.view
 
-import android.app.Fragment
+
+import android.app.FragmentManager
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -13,12 +15,14 @@ import com.example.carrerap.marvellous.R
 import com.example.carrerap.marvellous.adapters.CharactersAdapter
 import com.example.carrerap.marvellous.model.ApiResponse
 import com.example.carrerap.marvellous.model.Character
+import kotlinx.android.synthetic.main.character_info_fragment.*
 import kotlinx.android.synthetic.main.characters_list_fragment.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 class CharactersListFragment : android.support.v4.app.Fragment() {
 
@@ -74,7 +78,12 @@ class CharactersListFragment : android.support.v4.app.Fragment() {
 
     private fun characterClicked(character: Character) {
         Toast.makeText(activity, "Clicked: ${character.name}", Toast.LENGTH_LONG).show()
+        val intent = Intent(this.context,MainActivity::class.java)
+        activity!!.supportFragmentManager.beginTransaction().replace(R.id.ly_activity_main,CharacterInfoFragment()).addToBackStack(null).commit()
 
 
+        // intent.putExtra("character_id",character.id)
+
+              //Cambiar de fragment y mandar id
     }
 }

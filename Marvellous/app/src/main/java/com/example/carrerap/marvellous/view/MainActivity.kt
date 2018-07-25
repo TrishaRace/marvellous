@@ -14,11 +14,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         loadCharacterList()
+
     }
 
     //probar privados
     fun loadCharacterList(){
         supportFragmentManager.beginTransaction().replace(R.id.ly_activity_main, CharactersListFragment()).addToBackStack("charactersList").commit()
+    }
+    fun loadCharacterInfo(){
+        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_main, CharacterInfoFragment()).addToBackStack("charactersInfo").commit()
     }
 
 }

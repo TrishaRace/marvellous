@@ -8,7 +8,6 @@ import java.net.URL
 
 fun readMarvelApi(): ApiResponse? {
     val COMPLETE_URL = "http://gateway.marvel.com/v1/public/characters?ts=1&apikey=bb002cae0025452e0e19ba71896a9b11&hash=75772836ecf8d7ad6adabe834692d8fb"
-   //TODO url con interface
 
     var apiResponse: ApiResponse? = null
     //doAsync {
