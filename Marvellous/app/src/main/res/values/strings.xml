@@ -9,7 +9,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="comics">Comics</string>
     <string name="series">Series</string>
-    <string name="stories">Stories</string>
-    <string name="events">Events</string>
-    <string name="eventos">Eventos</string>
+    <string name="stories">Historias</string>
+    <string name="events">Eventos</string>
+    <string name="characters">Personajes</string>
 </resources>

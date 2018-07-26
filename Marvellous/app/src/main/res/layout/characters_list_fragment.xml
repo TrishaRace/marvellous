@@ -4,20 +4,9 @@
     android:id="@+id/ly_characters_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
     tools:context=".view.MainActivity"
     android:orientation="vertical"
     android:weightSum="8">
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="@string/marvel"
-        android:textColor="@android:color/holo_red_dark"
-        android:theme="@style/BigTitle"
-        android:layout_weight="1"
-        android:gravity="center"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_characters"

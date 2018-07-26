@@ -79,12 +79,7 @@ class CharactersListFragment : android.support.v4.app.Fragment() {
     private fun characterClicked(character: Character) {
         Toast.makeText(activity, "Clicked: ${character.name}", Toast.LENGTH_LONG).show()
         val intent = Intent(this.context,MainActivity::class.java)
-        activity!!.supportFragmentManager.beginTransaction().replace(R.id.ly_activity_main,CharacterInfoFragment()).addToBackStack(null).commit()
-
-
-        //jh
-        // intent.putExtra("character_id",character.id)
-
-              //Cambiar de fragment y mandar id
+        intent.putExtra("id",character.id)
+        (activity as MainActivity).loadCharacterInfo(character)
     }
 }

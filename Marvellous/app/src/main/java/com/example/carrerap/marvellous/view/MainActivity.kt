@@ -5,6 +5,7 @@ import android.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.carrerap.marvellous.R
+import com.example.carrerap.marvellous.model.Character
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,8 +22,8 @@ class MainActivity : AppCompatActivity() {
     fun loadCharacterList(){
         supportFragmentManager.beginTransaction().replace(R.id.ly_activity_main, CharactersListFragment()).addToBackStack("charactersList").commit()
     }
-    fun loadCharacterInfo(){
-        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_main, CharacterInfoFragment()).addToBackStack("charactersInfo").commit()
+    fun loadCharacterInfo(character : Character){
+        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_main, CharacterInfoFragment.newInstance(character)).addToBackStack("charactersInfo").commit()
     }
 
 }
