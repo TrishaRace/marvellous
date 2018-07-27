@@ -1,7 +1,6 @@
 package com.example.carrerap.marvellous.view
 
 
-import android.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.carrerap.marvellous.R
@@ -14,16 +13,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        loadCharacterList()
+        loadMainMenu()
 
     }
 
     //probar privados
+    fun loadMainMenu(){
+        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container, MainMenuFragment()).addToBackStack("mainMenu").commit()
+
+    }
     fun loadCharacterList(){
-        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_main, CharactersListFragment()).addToBackStack("charactersList").commit()
+        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container, CharactersListFragment()).addToBackStack("charactersList").commit()
     }
     fun loadCharacterInfo(character : Character){
-        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_main, CharacterInfoFragment.newInstance(character)).addToBackStack("charactersInfo").commit()
+        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container, CharacterInfoFragment.newInstance(character)).addToBackStack("charactersInfo").commit()
     }
 
 }

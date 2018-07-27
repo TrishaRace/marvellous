@@ -27,7 +27,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 class CharactersListFragment : android.support.v4.app.Fragment() {
 
     var BASE_URL = "http://gateway.marvel.com/v1/public/"
-
     var characterList: ArrayList<Character> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -41,7 +40,7 @@ class CharactersListFragment : android.support.v4.app.Fragment() {
         loadCharacters(view)
     }
 
-    private fun loadCharacters(view: View){
+    private fun loadCharacters(view: View) {
         val buildCharacters = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -78,8 +77,8 @@ class CharactersListFragment : android.support.v4.app.Fragment() {
 
     private fun characterClicked(character: Character) {
         Toast.makeText(activity, "Clicked: ${character.name}", Toast.LENGTH_LONG).show()
-        val intent = Intent(this.context,MainActivity::class.java)
-        intent.putExtra("id",character.id)
+        val intent = Intent(this.context, MainActivity::class.java)
+        intent.putExtra("id", character.id)
         (activity as MainActivity).loadCharacterInfo(character)
     }
 }
