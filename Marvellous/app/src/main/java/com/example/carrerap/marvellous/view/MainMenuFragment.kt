@@ -17,7 +17,7 @@ class MainMenuFragment : android.support.v4.app.Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val comicsButton = b_comics
+      /*  val comicsButton = b_comics
         val charactersButton = b_characters
         val eventsButton = b_events
         val storiesButton = b_stories
@@ -30,14 +30,17 @@ class MainMenuFragment : android.support.v4.app.Fragment() {
             (activity as MainActivity).loadCharacterList()
         }
         eventsButton.setOnClickListener{
-
+            (activity as MainActivity).loadEventsList()
         }
         storiesButton.setOnClickListener{
-
+            (activity as MainActivity).loadStoriesList()
         }
         seriesButton.setOnClickListener{
-
+            (activity as MainActivity).loadSeriesList()
         }
+        seriesButton.setOnClickListener{
+            (activity as MainActivity).loadComicsList()
+        }*/
     }
 
 

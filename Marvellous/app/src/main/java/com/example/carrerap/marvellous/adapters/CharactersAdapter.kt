@@ -1,18 +1,12 @@
 package com.example.carrerap.marvellous.adapters
 import android.content.Context
-import android.support.v7.view.menu.ActionMenuItemView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.example.carrerap.marvellous.R
 import com.example.carrerap.marvellous.model.Character
 import com.squareup.picasso.Picasso
-//import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.character_item.view.*
 
 

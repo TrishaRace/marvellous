@@ -10,41 +10,7 @@
     android:layout_marginTop="5dp">
 
 
-    <Button
-        android:id="@+id/b_comics"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/comics"
-        android:text="@string/comics"
-        android:theme="@style/MainMenuButtonText"/>
 
-    <Button
-        android:id="@+id/b_series"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/series"
-        android:text="@string/series"
-        android:theme="@style/MainMenuButtonText" />
-
-    <Button
-        android:id="@+id/b_stories"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/historias"
-        android:text="@string/stories"
-        android:theme="@style/MainMenuButtonText" />
-
-    <Button
-        android:id="@+id/b_events"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/eventos"
-        android:text="@string/events"
-        android:theme="@style/MainMenuButtonText" />
 
     <Button
         android:id="@+id/b_characters"

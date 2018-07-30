@@ -1,7 +1,6 @@
 package com.example.carrerap.marvellous.view
 
 
-import android.app.FragmentManager
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -13,9 +12,9 @@ import android.widget.Toast
 import com.example.carrerap.marvellous.MarvelService
 import com.example.carrerap.marvellous.R
 import com.example.carrerap.marvellous.adapters.CharactersAdapter
-import com.example.carrerap.marvellous.model.ApiResponse
+import com.example.carrerap.marvellous.model.Characters
 import com.example.carrerap.marvellous.model.Character
-import kotlinx.android.synthetic.main.character_info_fragment.*
+import com.example.carrerap.marvellous.model.Comics
 import kotlinx.android.synthetic.main.characters_list_fragment.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -51,25 +50,22 @@ class CharactersListFragment : android.support.v4.app.Fragment() {
         //aquí se manda el id.
         val call = marvelClient.getCharacters()
 
-        call.enqueue(object : Callback<ApiResponse> {
-            override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
-                val apiResponse = response.body()
+        call.enqueue(object : Callback<Characters> {
+            override fun onResponse(call: Call<Characters>, response: Response<Characters>) {
+                val characters = response.body()
 
-                if (apiResponse != null) {
-                    for (i in 0..apiResponse.data.count - 1) {
-                        val photoUrl: String = apiResponse.data.results[i].thumbnail.path + "." + apiResponse.data.results[i].thumbnail.extension
-                        characterList.add(Character(apiResponse.data.results[i].id, apiResponse.data.results[i].name, apiResponse.data.results[i].description, photoUrl))
+                if (characters != null) {
+                    for (i in 0..characters.data.count - 1) {
+                        val photoUrl: String = characters.data.results[i].thumbnail.path + "." + characters.data.results[i].thumbnail.extension
+                        characterList.add(Character(characters.data.results[i].id, characters.data.results[i].name, characters.data.results[i].description, photoUrl, characters.data.results[i].comics))
                         // data class Character(val id: Int, val name: String, val info: String, val photoUrl: String)    return charactersArray
                         rv_characters.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
-
-                        // rv_characters.adapter = CharactersAdapter(characterList, {item:Character-> View.OnClickListener(item) } )
-
                         rv_characters.adapter = CharactersAdapter(characterList, view.context, { partItem: Character -> characterClicked(partItem) })
                     }
                 }
             }
 
-            override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+            override fun onFailure(call: Call<Characters>, t: Throwable) {
                 Toast.makeText(activity, "" + call + "" + t, Toast.LENGTH_LONG).show()
             }
         })
@@ -81,4 +77,5 @@ class CharactersListFragment : android.support.v4.app.Fragment() {
         intent.putExtra("id", character.id)
         (activity as MainActivity).loadCharacterInfo(character)
     }
+
 }

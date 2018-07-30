@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.carrerap.marvellous.R
 import com.example.carrerap.marvellous.model.Character
+import com.example.carrerap.marvellous.model.Comics
 
 
 class MainActivity : AppCompatActivity() {
@@ -13,21 +14,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        loadMainMenu()
+        loadCharacterList()
 
     }
 
     //probar privados
-    fun loadMainMenu(){
-        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container, MainMenuFragment()).addToBackStack("mainMenu").commit()
 
-    }
     fun loadCharacterList(){
         supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container, CharactersListFragment()).addToBackStack("charactersList").commit()
     }
+
+    fun loadComicsList(comics : Comics){
+        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container, ComicsListFragment.newInstance(comics)).addToBackStack("comicsList").commit()
+    }
+
+
     fun loadCharacterInfo(character : Character){
         supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container, CharacterInfoFragment.newInstance(character)).addToBackStack("charactersInfo").commit()
     }
 
+    fun loadComicInfo(comicInfoUri : String){
+        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container, ComicInfoFragment.newInstance(comicInfoUri)).addToBackStack("comicInfo").commit()
+    }
 }
 
