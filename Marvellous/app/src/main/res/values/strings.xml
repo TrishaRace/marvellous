@@ -12,4 +12,6 @@
     <string name="stories">Historias</string>
     <string name="events">Eventos</string>
     <string name="characters">Personajes</string>
+    <string name="user">usuario</string>
+    <string name="password">contraseña</string>
 </resources>

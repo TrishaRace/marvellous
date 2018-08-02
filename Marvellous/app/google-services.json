@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "812182081542",
+    "firebase_url": "https://marvellous-7c59e.firebaseio.com",
+    "project_id": "marvellous-7c59e",
+    "storage_bucket": "marvellous-7c59e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812182081542:android:76aaa8750a696c2c",
+        "android_client_info": {
+          "package_name": "com.example.carrerap.marvellous"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812182081542-3reash8qh9baanvbu79jguvp0klij0h0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_cXzCtXU99BPLrkg6S-ffgvdISQzOOFA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
