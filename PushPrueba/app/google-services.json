@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "29088007968",
+    "firebase_url": "https://pushprueba-1805f.firebaseio.com",
+    "project_id": "pushprueba-1805f",
+    "storage_bucket": "pushprueba-1805f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29088007968:android:92961a91602d3dea",
+        "android_client_info": {
+          "package_name": "com.example.specialfoodiessl.pushprueba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "29088007968-55tpu7oh0qh8p00eakin5mbr1mo4rub3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIlX2nnSnCCfkD8PXrB8UGukmOwLz8Ftw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
