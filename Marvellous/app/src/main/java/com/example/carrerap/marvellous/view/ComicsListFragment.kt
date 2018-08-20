@@ -5,12 +5,14 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import com.example.carrerap.marvellous.R
 import com.example.carrerap.marvellous.adapters.ComicsAdapter
 import com.example.carrerap.marvellous.model.Comics
 import com.example.carrerap.marvellous.model.Items
 import kotlinx.android.synthetic.main.characters_list_fragment.*
+import kotlinx.android.synthetic.main.comic_info_fragment.*
 
 class ComicsListFragment : android.support.v4.app.Fragment() {
 
@@ -33,6 +35,7 @@ class ComicsListFragment : android.support.v4.app.Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        iv_title_photo.setImageResource(R.drawable.comics)
         return inflater.inflate(R.layout.characters_list_fragment, container, false)
     }
 
