@@ -8,12 +8,4 @@ data class Result(val id: Int, val name: String, val description: String, val mo
 
 data class Thumbnail(val path: String, val extension: String)
 
-
-
-data class Series(val available: Int, val CollectionURI: String, val items:List <Items>, val returned: Int)
-
-data class Stories(val available: Int, val collectionURI: String, val items:List <Items>, val returned: Int)
-
-data class Events(val available: Int, val collectionURI: String, val items:List <Items>, val returned: Int)
-
 data class Urls(val type: String, val url: String)

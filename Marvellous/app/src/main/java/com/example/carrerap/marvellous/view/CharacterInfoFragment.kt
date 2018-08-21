@@ -53,5 +53,6 @@ class CharacterInfoFragment : android.support.v4.app.Fragment() {
         tv_character_name.text = character.name
         tv_character_info.text = character.info
 
+
     }
 }
