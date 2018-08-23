@@ -57,7 +57,7 @@ class CharactersListFragment : android.support.v4.app.Fragment() {
                 if (characters != null) {
                     for (i in 0..characters.data.count - 1) {
                         val photoUrl: String = characters.data.results[i].thumbnail.path + "." + characters.data.results[i].thumbnail.extension
-                        characterList.add(Character(characters.data.results[i].id, characters.data.results[i].name, characters.data.results[i].description, photoUrl, characters.data.results[i].comics))
+                        characterList.add(Character(characters.data.results[i].id, characters.data.results[i].name, characters.data.results[i].description, photoUrl, characters.data.results[i].comics,characters.data.results[i].series,characters.data.results[i].stories,characters.data.results[i].events))
                         // data class Character(val id: Int, val name: String, val info: String, val photoUrl: String)    return charactersArray
                         rv_characters.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
                         rv_characters.adapter = CharactersAdapter(characterList, view.context, { partItem: Character -> characterClicked(partItem) })

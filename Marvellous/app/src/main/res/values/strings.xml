@@ -14,4 +14,7 @@
     <string name="characters">Personajes</string>
     <string name="user">usuario</string>
     <string name="password">contraseña</string>
+    <string name="name">Nombre</string>
+    <string name="comments_title">Deja aquí tu comentario</string>
+    <string name="comment_body_hint">Escribe aqui tu comentario</string>
 </resources>
