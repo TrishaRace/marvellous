@@ -9,24 +9,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.carrerap.marvellous.R
-import com.example.carrerap.marvellous.R.layout.character_info_fragment
 import com.example.carrerap.marvellous.model.Character
 import com.example.carrerap.marvellous.model.Comment
+import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.character_info_fragment.*
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.ValueEventListener
-
-
-
+import java.math.BigInteger
+import java.util.*
 
 
 class CharacterInfoFragment : android.support.v4.app.Fragment() {
 
     lateinit var character: Character
-    val database = FirebaseDatabase.getInstance()
+    lateinit var mDatabase :DatabaseReference
 
 
     companion object {
@@ -43,10 +38,12 @@ class CharacterInfoFragment : android.support.v4.app.Fragment() {
         super.onCreate(savedInstanceState)
         character = arguments!!.getParcelable("character")
 
+        mDatabase = FirebaseDatabase.getInstance().getReference()
+
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI
-                val post = dataSnapshot.getValue<Comment>(Comment::class.java!!)
+                val post = dataSnapshot.getValue<Comment>(Comment::class.java)
                 // ...
             }
 
@@ -56,7 +53,7 @@ class CharacterInfoFragment : android.support.v4.app.Fragment() {
                 // ...
             }
         }
-        mPostReference.addValueEventListener(postListener)
+        //mPostReference.addValueEventListener(postListener)
 
     }
 
@@ -75,20 +72,10 @@ class CharacterInfoFragment : android.support.v4.app.Fragment() {
         comicsButton.setOnClickListener {
             (activity as MainActivity).loadComicsList(character.comics)
         }
-    }
-
-    private fun loadInfoCharacter(view: View) {
-
-        Picasso.get().load(character.photoUrl).into(iv_character_photo)
-        tv_character_name.text = character.name
-        tv_character_info.text = character.info
-
-    }
-
-    private fun createComment() {
         val et_comment_username = et_comment_username
         val et_comment_body = et_comment_body
         val b_send_comment = b_send_comment
+
 
         et_comment_username.addTextChangedListener(object : TextWatcher {
 
@@ -102,21 +89,35 @@ class CharacterInfoFragment : android.support.v4.app.Fragment() {
                                        before: Int, count: Int) {
                 if (et_comment_body.text != null && et_comment_username != null) {
                     b_send_comment.visibility = View.VISIBLE
-                }else{
+                } else {
                     b_send_comment.visibility = View.GONE
                 }
             }
         })
 
+
+
+    }
+
+    private fun loadInfoCharacter(view: View) {
+
+        Picasso.get().load(character.photoUrl).into(iv_character_photo)
+        tv_character_name.text = character.name
+        tv_character_info.text = character.info
+
+    }
+
+    private fun sendComment() {
+        val random:Random = Random(20)
+        val name: String = et_comment_username.text.toString()
+        val body: String = et_comment_body.text.toString()
+        val userId: String = BigInteger(50, random).toString()
         // si solo se quiere pasar la view como parametro: view.setOnClickListener { doSomething(it) }
-        b_send_comment.setOnClickListener{v -> sendComment(v)} // si solo se quiere pasar la view como parametro: view.setOnClickListener { doSomething(it) }
+        // si solo se quiere pasar la view como parametro: view.setOnClickListener { doSomething(it) }
 
+        val comment: Comment = Comment(name, body)
+        mDatabase.child("comments").child(userId).setValue(comment)
     }
-    private  fun sendComment(v : View){
-        db_comment_username.setValue(et_comment_username.text)
-        db_comment_body.setValue(et_comment_body.text)
-    }
-
 
 
 }
