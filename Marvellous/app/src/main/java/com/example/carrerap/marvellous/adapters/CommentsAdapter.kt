@@ -12,7 +12,7 @@ class CommentsAdapter(var comments: ArrayList<Comment>) : RecyclerView.Adapter<C
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentsAdapter.ViewHolder {
-        val inflate = LayoutInflater.from(parent.context).inflate(R.layout.character_item, parent, false)
+        val inflate = LayoutInflater.from(parent.context).inflate(R.layout.comment_item, parent, false)
         return ViewHolder(inflate)
     }
 
@@ -29,7 +29,7 @@ class CommentsAdapter(var comments: ArrayList<Comment>) : RecyclerView.Adapter<C
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItems(comment: Comment) {
             itemView.tv_comment_username.text = comment.user
-            itemView.tv_comment_username.text = comment.comment
+            itemView.tv_comment_body.text = comment.comment
         }
     }
 }
