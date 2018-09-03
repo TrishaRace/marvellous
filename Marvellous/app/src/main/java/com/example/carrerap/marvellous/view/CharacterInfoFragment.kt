@@ -9,12 +9,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.carrerap.marvellous.R
 import com.example.carrerap.marvellous.model.Character
-import com.example.carrerap.marvellous.model.Comment
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.character_info_fragment.*
-import java.util.*
+import kotlin.collections.HashMap
 
 class CharacterInfoFragment : android.support.v4.app.Fragment() {
 
@@ -41,21 +40,22 @@ class CharacterInfoFragment : android.support.v4.app.Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.character_info_fragment, container, false)
 
-        
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loadInfoCharacter(view)
+        loadInfoCharacter()
         val comicsButton = b_comics
 
         b_send_comment.setOnClickListener {
             sendComment()
         }
+
         comicsButton.setOnClickListener {
             (activity as MainActivity).loadComicsList(character.comics)
         }
+
         val et_comment_username = et_comment_username
         val et_comment_body = et_comment_body
         val b_send_comment = b_send_comment
@@ -100,10 +100,9 @@ class CharacterInfoFragment : android.support.v4.app.Fragment() {
             }
         })
 
-
     }
 
-    private fun loadInfoCharacter(view: View) {
+    private fun loadInfoCharacter() {
 
         Picasso.get().load(character.photoUrl).into(iv_character_photo)
         tv_character_name.text = character.name
@@ -112,15 +111,12 @@ class CharacterInfoFragment : android.support.v4.app.Fragment() {
     }
 
     private fun sendComment() {
-        val random = Random()
-        val name: String = et_comment_username.text.toString()
-        val body: String = et_comment_body.text.toString()
-        val commentId = random.nextInt(999999999).toString()
-        // si solo se quiere pasar la view como parametro: view.setOnClickListener { doSomething(it) }
-        // si solo se quiere pasar la view como parametro: view.setOnClickListener { doSomething(it) }
 
-        val comment = Comment(name, body)
-        mDatabase.child(commentId).setValue(comment)
+        val readWriteMap: HashMap<String, String> = hashMapOf()
+        readWriteMap.put("username", et_comment_username.text.toString())
+        readWriteMap.put("body", et_comment_body.text.toString())
+
+        mDatabase.child(character.name).push().setValue(readWriteMap)
 
         et_comment_body.setText("")
         et_comment_username.setText("")
