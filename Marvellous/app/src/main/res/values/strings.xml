@@ -18,4 +18,5 @@
     <string name="comments_title">Deja aquí tu comentario</string>
     <string name="comment_body_hint">Escribe aqui tu comentario</string>
     <string name="comment_send_toast">Comentario enviado!!</string>
+    <string name="comments">Opiniones</string>
 </resources>

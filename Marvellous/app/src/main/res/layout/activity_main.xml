@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity"
-    android:orientation="vertical">
+    android:background="@color/colorSoftBackground"
+    android:orientation="vertical"
+    tools:context=".view.MainActivity">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/black"
+        android:gravity="center"
         android:text="@string/marvel"
         android:textColor="@android:color/holo_red_dark"
-        android:background="@android:color/black"
-        android:theme="@style/BigTitle"
-        android:gravity="center"/>
+        android:theme="@style/BigTitle" />
 
-    <LinearLayout
-        android:id="@+id/ly_activity_container"
+    <FrameLayout
+        android:id="@+id/ly_activity_container_1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"/>
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:id="@+id/ly_activity_container_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
 

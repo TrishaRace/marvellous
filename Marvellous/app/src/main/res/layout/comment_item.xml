@@ -7,35 +7,49 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@android:color/white"
+    >
 
-    <ImageView
-        android:id="@+id/iv_divider"
-        android:layout_width="match_parent"
+
+    <ImageButton
+        android:id="@+id/b_delete"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/divider_horizontal_textfield"
-        android:background="@android:color/darker_gray"
+        android:src="@android:drawable/ic_delete"
+        android:background="@android:color/transparent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/tv_comment_username"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
+        app:layout_constraintBottom_toTopOf="@id/tv_comment_body"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/b_edit"/>
+    <ImageButton
+        android:id="@+id/b_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_edit"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_comment_body"
+        app:layout_constraintRight_toLeftOf="@id/b_delete"
+        app:layout_constraintLeft_toRightOf="@+id/tv_comment_username"/>
     <TextView
         android:id="@+id/tv_comment_username"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/characters"
         android:theme="@style/usernameComment"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_comment_body"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_comment_body"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_divider"/>
+        app:layout_constraintRight_toLeftOf="@id/b_edit"
+        />
 
 
 
     <TextView
         android:id="@+id/tv_comment_body"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/characters"
         android:theme="@style/bodyComment"
