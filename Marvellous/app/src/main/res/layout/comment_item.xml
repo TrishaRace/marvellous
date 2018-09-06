@@ -31,7 +31,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv_comment_body"
         app:layout_constraintRight_toLeftOf="@id/b_delete"
-        app:layout_constraintLeft_toRightOf="@+id/tv_comment_username"/>
+        app:layout_constraintLeft_toRightOf="@+id/tv_comment_username"
+        android:visibility="gone"/>
     <TextView
         android:id="@+id/tv_comment_username"
         android:layout_width="0dp"

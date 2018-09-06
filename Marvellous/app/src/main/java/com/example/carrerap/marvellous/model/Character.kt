@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 
-data class Character(val id: Int, val name: String, val info: String, val photoUrl: String, val comics: Comics, val series: Series, val stories: Stories, val events: Events) : Parcelable {
+data class Character(val id: Int, val name: String?, val info: String?, val photoUrl: String?, val comics: Comics?, val series: Series?, val stories: Stories?, val events: Events?) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
             parcel.readString(),

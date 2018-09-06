@@ -24,18 +24,13 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container_1, CharactersListFragment()).addToBackStack("charactersList").commit()
     }
 
-    fun loadComicsList(comics: Comics) {
-        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container_1, ComicsListFragment.newInstance(comics)).addToBackStack("comicsList").commit()
-    }
-
-
-    fun loadCharacterInfo(character: Character) {
+    fun loadComments(character: Character) {
         supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container_1, CharacterInfoFragment.newInstance(character)).addToBackStack("charactersInfo").commit()
         supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container_2, CommentsFragment.newInstance(character)).addToBackStack("comments").commit()
     }
 
-    fun loadComicInfo(comicInfoUri: String) {
-        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container_1, ComicInfoFragment.newInstance(comicInfoUri)).addToBackStack("comicInfo").commit()
+    fun loadComicList(comicInfoUri: String) {
+        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container_2, ComicsListFragment.newInstance(comicInfoUri)).addToBackStack("comicInfo").commit()
     }
 
 

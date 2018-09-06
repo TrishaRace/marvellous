@@ -40,6 +40,13 @@ class CharacterInfoFragment : android.support.v4.app.Fragment() {
 
         loadInfoCharacter()
 
+        b_comments.setOnClickListener({
+            (activity as MainActivity).loadComments(character)
+        })
+        b_comics.setOnClickListener({
+            (activity as MainActivity).loadComicList(character.comics.collectionURI)
+        })
+
     }
 
     private fun loadInfoCharacter() {

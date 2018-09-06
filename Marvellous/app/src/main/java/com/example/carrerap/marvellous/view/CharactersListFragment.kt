@@ -1,7 +1,6 @@
 package com.example.carrerap.marvellous.view
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -14,7 +13,6 @@ import com.example.carrerap.marvellous.R
 import com.example.carrerap.marvellous.adapters.CharactersAdapter
 import com.example.carrerap.marvellous.model.Characters
 import com.example.carrerap.marvellous.model.Character
-import com.example.carrerap.marvellous.model.Comics
 import kotlinx.android.synthetic.main.characters_list_fragment.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -73,9 +71,7 @@ class CharactersListFragment : android.support.v4.app.Fragment() {
 
     private fun characterClicked(character: Character) {
         Toast.makeText(activity, "Clicked: ${character.name}", Toast.LENGTH_LONG).show()
-        val intent = Intent(this.context, MainActivity::class.java)
-        intent.putExtra("id", character.id)
-        (activity as MainActivity).loadCharacterInfo(character)
+        (activity as MainActivity).loadComments(character)
     }
 
 }
