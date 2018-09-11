@@ -17,7 +17,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.character_info_fragment.*
 import kotlinx.android.synthetic.main.comment_fragment.*
 
-class CommentsFragment: android.support.v4.app.Fragment() {
+class CommentsFragment : android.support.v4.app.Fragment() {
 
     lateinit var character: Character
     var commentList: ArrayList<Comment> = ArrayList()
@@ -33,11 +33,12 @@ class CommentsFragment: android.support.v4.app.Fragment() {
             return fragment
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         character = arguments!!.getParcelable("character")
 
-        mDatabase.child(character.name).addChildEventListener(object : ChildEventListener {
+        mDatabase.child(character.name.toString()).addChildEventListener(object : ChildEventListener {
             override fun onChildMoved(p0: DataSnapshot, p1: String?) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
@@ -47,8 +48,10 @@ class CommentsFragment: android.support.v4.app.Fragment() {
             }
 
             override fun onChildRemoved(dataSnapshot: DataSnapshot) {
-                commentList.remove(Comment(dataSnapshot.key.toString(),dataSnapshot.child("username").getValue().toString(),dataSnapshot.child("body").getValue().toString()))
-                rv_comments.adapter = CommentsAdapter(mDatabase.child(character.name),commentList)
+                commentList.remove(Comment(dataSnapshot.key.toString(), dataSnapshot.child("username").getValue().toString(), dataSnapshot.child("body").getValue().toString()))
+                if (rv_comments != null) {
+                    rv_comments.adapter = CommentsAdapter(mDatabase.child(character.name.toString()), commentList)
+                }
             }
 
             override fun onCancelled(p0: DatabaseError) {
@@ -57,9 +60,11 @@ class CommentsFragment: android.support.v4.app.Fragment() {
 
             override fun onChildAdded(dataSnapshot: DataSnapshot, p1: String?) {
 
-                commentList.add(Comment(dataSnapshot.key.toString(),dataSnapshot.child("username").getValue().toString(),dataSnapshot.child("body").getValue().toString()))
-                rv_comments.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
-                rv_comments.adapter = CommentsAdapter(mDatabase.child(character.name),commentList)
+                commentList.add(Comment(dataSnapshot.key.toString(), dataSnapshot.child("username").getValue().toString(), dataSnapshot.child("body").getValue().toString()))
+                if (rv_comments != null) {
+                    rv_comments.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+                    rv_comments.adapter = CommentsAdapter(mDatabase.child(character.name.toString()), commentList)
+                }
             }
 
         })
@@ -119,6 +124,7 @@ class CommentsFragment: android.support.v4.app.Fragment() {
 
 
     }
+
     private fun sendComment() {
 
         val readWriteMap: HashMap<String, String> = hashMapOf()
@@ -126,7 +132,7 @@ class CommentsFragment: android.support.v4.app.Fragment() {
         readWriteMap.put("body", et_comment_body.text.toString())
 
 
-        mDatabase.child(character.name).push().setValue(readWriteMap)
+        mDatabase.child(character.name.toString()).push().setValue(readWriteMap)
 
         et_comment_body.setText("")
         et_comment_username.setText("")

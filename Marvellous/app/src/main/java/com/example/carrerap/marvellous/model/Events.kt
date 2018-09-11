@@ -3,11 +3,11 @@ package com.example.carrerap.marvellous.model
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Events(val available: Int, val collectionURI: String, val items:List <Items>, val returned: Int) : Parcelable {
+data class Events(val available: Int, val collectionURI: String, val items:List <Item>, val returned: Int) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
             parcel.readString(),
-            parcel.createTypedArrayList(Items),
+            parcel.createTypedArrayList(Item),
             parcel.readInt()) {
     }
 

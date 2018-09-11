@@ -19,4 +19,8 @@
     <string name="comment_body_hint">Escribe aqui tu comentario</string>
     <string name="comment_send_toast">Comentario enviado!!</string>
     <string name="comments">Opiniones</string>
+    <string name="characters_2p">Personajes:</string>
+    <string name="creators_2p">Creadores:</string>
+    <string name="available"> disponible</string>
+    <string name="number_of_pages">Numero de paginas:</string>
 </resources>

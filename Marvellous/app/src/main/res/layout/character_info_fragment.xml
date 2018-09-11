@@ -33,6 +33,7 @@
                 android:id="@+id/iv_character_photo"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                android:scaleType="centerCrop"
                 android:layout_margin="10dp"
                 android:background="@android:color/holo_red_dark" />
 

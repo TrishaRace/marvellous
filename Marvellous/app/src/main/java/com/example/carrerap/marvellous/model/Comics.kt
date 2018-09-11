@@ -1,16 +1,14 @@
 package com.example.carrerap.marvellous.model
 
-import android.content.ClipData
 import android.os.Parcel
 import android.os.Parcelable
-import android.support.v4.content.Loader
 
-data class Comics(val available: Int, val collectionURI: String, val items: ArrayList<Items>, val returned: Int) : Parcelable {
+data class Comics(val available: Int, val collectionURI: String, val items: ArrayList<Item>, val returned: Int) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
             parcel.readString(),
-            arrayListOf<Items>().apply {
-                parcel.readArrayList( Items::class.java.classLoader)
+            arrayListOf<Item>().apply {
+                parcel.readArrayList( Item::class.java.classLoader)
             },
             parcel.readInt())
 

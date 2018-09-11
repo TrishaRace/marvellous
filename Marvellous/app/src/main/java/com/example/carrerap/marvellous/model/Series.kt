@@ -4,11 +4,11 @@ import android.os.Parcel
 import android.os.Parcelable
 
 
-data class Series(val available: Int, val CollectionURI: String, val items:List <Items>, val returned: Int) : Parcelable {
+data class Series(val available: Int, val CollectionURI: String, val items:List <Item>, val returned: Int) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
             parcel.readString(),
-            parcel.createTypedArrayList(Items),
+            parcel.createTypedArrayList(Item),
             parcel.readInt())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {

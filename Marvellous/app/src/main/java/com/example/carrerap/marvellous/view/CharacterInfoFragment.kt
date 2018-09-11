@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.character_info_fragment.*
 
 
-class CharacterInfoFragment : android.support.v4.app.Fragment() {
+class CharacterInfoFragment: android.support.v4.app.Fragment() {
 
     lateinit var character: Character
 
@@ -42,9 +42,10 @@ class CharacterInfoFragment : android.support.v4.app.Fragment() {
 
         b_comments.setOnClickListener({
             (activity as MainActivity).loadComments(character)
+
         })
         b_comics.setOnClickListener({
-            (activity as MainActivity).loadComicList(character.comics.collectionURI)
+            (activity as MainActivity).loadComicList(character.comics?.collectionURI)
         })
 
     }

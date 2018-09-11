@@ -26,6 +26,7 @@
             android:id="@+id/iv_character_photo"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:scaleType="centerCrop"
             app:layout_constraintRight_toLeftOf="@id/tv_character_name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.carrerap.marvellous.R
 import com.example.carrerap.marvellous.model.Character
-import com.example.carrerap.marvellous.model.Comics
+import com.example.carrerap.marvellous.model.ComicInfo
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,10 +29,15 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container_2, CommentsFragment.newInstance(character)).addToBackStack("comments").commit()
     }
 
-    fun loadComicList(comicInfoUri: String) {
+    fun loadComicList(comicInfoUri: String?) {
         supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container_2, ComicsListFragment.newInstance(comicInfoUri)).addToBackStack("comicInfo").commit()
     }
+    fun loadComicInfo(comicInfo: ComicInfo?) {
+        val newFragment =ComicInfoFragmentDialog.newInstance(comicInfo)
+       // newFragment.show(fragmentManager, "dialog")
+        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container_2, ComicsListFragment.newInstance(comicInfoUri)).addToBackStack("comicInfo").commit()
 
+    }
 
 }
 
