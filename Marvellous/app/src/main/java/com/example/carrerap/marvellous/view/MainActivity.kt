@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
     }
     fun loadComicInfo(comicInfo: ComicInfo?) {
         val newFragment =ComicInfoFragmentDialog.newInstance(comicInfo)
-       // newFragment.show(fragmentManager, "dialog")
-        supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container_2, ComicsListFragment.newInstance(comicInfoUri)).addToBackStack("comicInfo").commit()
+        newFragment.show(fragmentManager, "dialog")
+       // supportFragmentManager.beginTransaction().replace(R.id.ly_activity_container_2, ComicInfoFragmentDialog.newInstance(comicInfo)).addToBackStack("comicInfo").commit()
 
     }
 
